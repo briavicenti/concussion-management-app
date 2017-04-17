@@ -24,7 +24,7 @@ export default class SymptomProgress extends React.Component {
 
     return (
 
-      <VictoryBar/>
+      <Text>Meow</Text>
     );
   }
 }

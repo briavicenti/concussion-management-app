@@ -93,7 +93,7 @@ export default class BalanceProblems extends React.Component {
                 minimumValue={0}
                 maximumValue={6}
                 step={1}
-                thumbStyle={{width: 10, backgroundColor: symColor}}
+                thumbStyle={{width: 20, backgroundColor: symColor, top: 22,}}
                 trackStyle={styles.trackStyle}
                 minimumTrackTintColor={symColor}
                 />
@@ -140,6 +140,5 @@ const styles = StyleSheet.create({
   },
   trackStyle: {
     backgroundColor: gAccent1,
-    marginTop: -4,
   }
 });

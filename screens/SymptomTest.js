@@ -35,18 +35,18 @@ export default class SymptomTest extends React.Component {
       return array;
     }
 
-    var symList = [(<BalanceProblems goToNext={this.triggerNext}/>), (<Headache goToNext={this.triggerNext}/>)]
+    var symList = [(<Headache goToNext={this.triggerNext}/>)]
     shuffleArray(symList);
     var currSym = symList[0];
 
-    i = 0;
-    while (i < symList.length) {
-      if (this.state.goToNext) {
-        i++
-        currSym=symList[i];
-        triggerNext(false);
-      }
-    }
+    // i = 0;
+    // while (i < symList.length) {
+    //   if (this.state.goToNext) {
+    //     i++
+    //     currSym=symList[i];
+    //     triggerNext(false);
+    //   }
+    // }
 
     return (
 

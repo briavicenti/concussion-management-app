@@ -38,19 +38,23 @@ export default class Home extends React.Component {
             </View>
             </TouchableOpacity>
 
-            {/*
+          
+            {/*}
             <TouchableOpacity onPress={() => navigate('SymptomTest')}>
             <View style={styles.startedButton}>
             <Text style={styles.startedButtonText}>Symptom Test</Text>
             </View>
             </TouchableOpacity>
           */}
+          
 
+            {/*
             <TouchableOpacity onPress={() => navigate('SymptomProgress')}>
             <View style={styles.startedButton}>
             <Text style={styles.startedButtonText}>Symptom Progress</Text>
             </View>
             </TouchableOpacity>
+          */}
 
           </View>
       </BackgroundImage>
@@ -74,7 +78,7 @@ const styles = StyleSheet.create({
     overflow: 'visible',
   },
   welcomeText: {
-    fontSize: 40,
+    fontSize: 60,
     color: '#fff',
     backgroundColor: 'transparent',
 
@@ -89,6 +93,6 @@ const styles = StyleSheet.create({
   },
   startedButtonText: {
     color: '#328F9C',
-    fontSize: 20,
+    fontSize: 40,
   },
 });

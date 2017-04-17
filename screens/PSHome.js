@@ -25,7 +25,7 @@ import ColoredButton from '../components/ColoredButton';
 export default class PSHome extends React.Component {
   state = {
     modalVisible: true,
-    progress: 3,
+    progress: 2,
   }
   
   setModalVisible(visible) {
@@ -80,7 +80,7 @@ export default class PSHome extends React.Component {
 
         {/* TO DO: This should change w/ the user's progress in the education module*/}
         <Image
-            source={require('../assets/bgbwhite.png')}
+            source={require('../assets/brain.png')}
             style={styles.logoContainer}
         />
         <Header1 style={{marginLeft: 20, marginBottom: 5,}}>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D0D0D0',
   },
   logoContainer: {
-    width: 50,
+    width: 55,
     height: 55,
     margin: 10,
     alignSelf: 'center',
