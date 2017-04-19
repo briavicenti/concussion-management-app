@@ -35,7 +35,7 @@ export default class SymptomTest extends React.Component {
       return array;
     }
 
-    var symList = [(<Headache goToNext={this.triggerNext}/>)]
+    var symList = [<Headache/>, <BalanceProblems/>]
     shuffleArray(symList);
     var currSym = symList[0];
 

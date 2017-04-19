@@ -4,6 +4,11 @@ import {
 	Text,
 	View,
 } from 'react-native';
+import {
+  gAccent1,
+  cAccent1,
+  cAccent2,
+} from '../assets/styles';
 
 export default class VerticalProgressBar extends React.Component {
 	render() {
@@ -16,28 +21,28 @@ export default class VerticalProgressBar extends React.Component {
 	              <View style={styles.progressBubble}>
 	                <Text style={styles.bubbleNum}>1</Text>
 	              </View>
-	              <Text style={styles.progressText}>Fill out Colgate waiver.</Text>
+	              <Text style={styles.progressText}>NCAA concussion video.</Text>
 	            </View>   
 
 	            <View style={styles.progressSteps}>
 	              <View style={styles.progressBubble}>
 	                <Text style={styles.bubbleNum}>2</Text>
 	              </View>
-	              <Text style={styles.progressText}>Complete concussion education modules.</Text>
+	              <Text style={styles.progressText}>Concussion education modules.</Text>
 	            </View>
 
 	            <View style={styles.progressSteps}>
 	              <View style={styles.progressBubble}>
 	                <Text style={styles.bubbleNum}>3</Text>
 	              </View>
-	              <Text style={styles.progressText}>Watch concussion video.</Text>
+	              <Text style={styles.progressText}>Colgate athletics waivers.</Text>
 	            </View>
 
 	            <View style={styles.progressSteps}>
 	              <View style={styles.progressBubble}>
 	                <Text style={styles.bubbleNum}>4</Text>
 	              </View>
-	              <Text style={styles.progressText}>Post-training quiz.</Text>
+	              <Text style={styles.progressText}>Symptom baseline test.</Text>
 	            </View>
 
             </View>
@@ -51,11 +56,11 @@ const styles = StyleSheet.create({
   progressContainer: {
     margin: 20,
     justifyContent: 'space-between',
-    height: 250,
+    height: 300,
   },
   progressBar: {
-    width: 8,
-    backgroundColor: '#328F9C',
+    width: 9,
+    backgroundColor: cAccent1,
     zIndex: 1,
     flex: 1,
     alignItems: 'flex-start',
@@ -68,18 +73,19 @@ const styles = StyleSheet.create({
     width: 200,
   },
   progressText: {
-  	fontSize: 15,
-  	color: '#3A3A3A',
+  	fontSize: 18,
+  	color: cAccent2,
+    fontWeight: 'bold',
   },
   progressBubble: {
-    borderRadius: 12.5,
-    width: 25,
-    height: 25,
-    backgroundColor: '#328F9C',
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+    backgroundColor: cAccent1,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
-    marginLeft: -8,
+    marginLeft: -10,
   },
   bubbleNum: {
   	color: 'white',

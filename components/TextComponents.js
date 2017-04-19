@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		color: cAccent2,
 		fontWeight: 'bold',
-		marginVertical: 5,
+		marginTop: 5,
+		marginBottom: 10,
 
 	},
 	header3: {

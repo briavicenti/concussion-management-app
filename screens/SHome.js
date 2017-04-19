@@ -23,10 +23,10 @@ import PBEducation from '../components/PBEducation';
 import PBBaseline from '../components/PBBaseline';
 import ColoredButton from '../components/ColoredButton';
 
-export default class PSHome extends React.Component {
+export default class SHome extends React.Component {
   state = {
     modalVisible: true,
-    progress: 2,
+    progress: 4,
   }
   
   setModalVisible(visible) {
@@ -66,13 +66,13 @@ export default class PSHome extends React.Component {
             visible={this.state.modalVisible}
           >
           <View style={styles.popup}>
-            <Header2>
+            <Header3>
             Welcome to your pre-season home!
-            </Header2> 
-            <Text style={{fontSize: 18}}>Your athletic administrator has asked you to complete the
+            </Header3> 
+            <Text>Your athletic administrator has asked you to complete the
             following tasks before you start your season.</Text>
             <VerticalProgressBar/>
-            <Text style={{fontSize: 18}}>Your deadline to complete these tasks is <Bold style={{fontSize: 18}}>Deadline</Bold>.</Text>
+            <Text>Your deadline to complete these tasks is <Bold>Deadline</Bold>.</Text>
             <ColoredButton
               onPress={() => {this.setModalVisible(false)}}>
               Okay

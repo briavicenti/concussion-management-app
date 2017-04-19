@@ -1,57 +1,116 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Video from 'react-native-video';
+import { StyleSheet, 
+		 View, 
+		 Text, 
+		 Dimensions, 
+		 TouchableOpacity,
+		 WebView } from 'react-native';
+import { Video, Constants } from 'expo';
+import YouTube from 'react-native-youtube';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { gAccent1 } from '../assets/styles';
 
 export default class ConcussionVid extends React.Component {
+	
+
+	state = {
+    	paused: true,
+  	};
+
+  	_handleButtonPress = () => {
+    	this.setState(state => ({
+      	paused: !state.paused
+    	}));
+  	};
+
 	render () {
+		const paused = this.state.paused;
 		return(
-			
-			<View>
-			{/*
-			<Video source={require("../assets/concussion.mp4")}   // Can be a URL or a local file.
-		       ref={(ref) => {
-		         this.player = ref
-		       }}                                      // Store reference
-		       //rate={1.0}                              // 0 is paused, 1 is normal.
-		       //volume={1.0}                            // 0 is muted, 1 is normal.
-		       //muted={false}                           // Mutes the audio entirely.
-		       //paused={false}                          // Pauses playback entirely.
-		       resizeMode="cover"                      // Fill the whole screen at aspect ratio.*
-		       //repeat={true}                           // Repeat forever.
-		       playInBackground={false}                // Audio continues to play when app entering background.
-		       playWhenInactive={false}                // [iOS] Video continues to play when control or notification center are shown.
-		       progressUpdateInterval={250.0}          // [iOS] Interval to fire onProgress (default to ~250ms)
-		       onLoadStart={this.loadStart}            // Callback when video starts to load
-		       onLoad={this.setDuration}               // Callback when video loads
-		       onProgress={this.setTime}               // Callback every ~250ms with currentTime
-		       onEnd={this.onEnd}                      // Callback when playback finishes
-		       onError={this.videoError}               // Callback when video cannot be loaded
-		       onBuffer={this.onBuffer}                // Callback when remote video is buffering
-		       onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
-		       style={styles.backgroundVideo} 
-		    />
+		    <View style={styles.container}>
+		        
+
+		    	<WebView
+        			style={{flex:1}}
+        			javaScriptEnabled={true}
+        			source={{uri: 'https://www.youtube.com/embed/ZZ5LpwO-An4?rel=0&autoplay=0&showinfo=0&controls=0'}}
+				/>
+
+				{/*}
+		        <Video
+		          source={require('../assets/concussion.mp4')}
+		          isAsset={true}
+		          rate={1.0}
+		          volume={1.0}
+		          muted={false}
+		          resizeMode='cover'
+		          paused={paused}
+		          style={{ width: Dimensions.get('window').width, height: 170, margin: 10, padding: 10}}
+		        />
+		        <TouchableOpacity 
+		            onPress={this._handleButtonPress}>
+		            <Icon name={paused? "play-circle" :"pause-circle"} size={28} color={gAccent1}/>
+		        </TouchableOpacity>
+		    */}
+        	
+
+			{/*}
+			<Video
+				source={require('../assets/concussion.mp4')}
+				style={{width: 300, height: 300}}
+				isAsset={true}
+				rate={1.0}
+				volume={1.0}
+				resizeMode='cover'/>
 			*/}
+			{/*<YouTube
+				ref="youtubePlayer"
+				videoId="T3FLRDxbLXg" // The YouTube video ID
+				play={true}           // control playback of video with true/false
+				hidden={false}        // control visiblity of the entire view
+				playsInline={true}    // control whether the video should play inline
+				loop={false}          // control whether the video should loop when ended
 
-			
-			<Text>This will hold a video.</Text>
+				onReady={(e)=>{this.setState({isReady: true})}}
+				onChangeState={(e)=>{this.setState({status: e.state})}}
+				onChangeQuality={(e)=>{this.setState({quality: e.quality})}}
+				onError={(e)=>{this.setState({error: e.error})}}
+				onProgress={(e)=>{this.setState({currentTime: e.currentTime, duration: e.duration})}}
+
+				style={{alignSelf: 'stretch', height: 300, backgroundColor: 'white', marginVertical: 10}}
+				/>
+			*/}
 			</View>
-
-			// Later to trigger fullscreen
-			// this.player.presentFullscreenPlayer();
-
-			// To set video position in seconds (seek)
-			//this.player.seek(0);
-
 		);
 	}
 }
 
 var styles = StyleSheet.create({
-  backgroundVideo: {
+  container: {
+  	flex: 1,
+  	alignItems: 'center',
+  	justifyContent: 'center',
+  	padding: 10,  },
+  fab: {
+    width: 56,
+    height: 56,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 56/2,
+    elevation: 6,
+     shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    }
+  },
+  fabContainer: {
     position: 'absolute',
-    top: 0,
+    bottom: 32,
     left: 0,
-    bottom: 0,
     right: 0,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });

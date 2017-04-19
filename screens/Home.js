@@ -34,18 +34,25 @@ export default class Home extends React.Component {
 
             <TouchableOpacity onPress={() => navigate('PSHome')}>
             <View style={styles.startedButton}>
-            <Text style={styles.startedButtonText}>Let's get started.</Text>
+            <Text style={styles.startedButtonText}>PSHome</Text>
             </View>
             </TouchableOpacity>
 
+            <TouchableOpacity onPress={() => navigate('SHome')}>
+            <View style={styles.startedButton}>
+            <Text style={styles.startedButtonText}>SHome</Text>
+            </View>
+            </TouchableOpacity>
           
-            {/*}
+
+            {/*
             <TouchableOpacity onPress={() => navigate('SymptomTest')}>
             <View style={styles.startedButton}>
             <Text style={styles.startedButtonText}>Symptom Test</Text>
             </View>
             </TouchableOpacity>
           */}
+        
           
 
             {/*
@@ -70,7 +77,7 @@ const styles = StyleSheet.create({
   welcomeContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 80,
+    paddingBottom: 40,
   },
   logoContainer: {
     width: 100,
@@ -90,9 +97,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 5,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   startedButtonText: {
     color: '#328F9C',
     fontSize: 40,
+    textAlign: 'center',
   },
 });

@@ -9,8 +9,19 @@ import PSHome from './screens/PSHome';
 import CodeOfConduct from './screens/CodeOfConduct';
 import ConcussionPolicy from './screens/ConcussionPolicy';
 import ConcussionVid from './screens/ConcussionVid';
+
+// education modules
+import ConcussionOverview from './screens/ConcussionOverview';
+import SignsAndSymptoms from './screens/SignsAndSymptoms';
+import ConcussionRecovery from './screens/ConcussionRecovery';
+import ReturnToPlay from './screens/ReturnToPlay';
+
+// in season
+import SHome from './screens/SHome';
 import SymptomTest from './screens/SymptomTest';
 import SymptomProgress from './screens/SymptomProgress';
+
+
 
 const reducer = (state = {}, action) => {
   switch(action.type) {
@@ -30,6 +41,7 @@ class App extends React.Component {
     const customTextProps = {
       style: {
         fontFamily: 'Avenir',
+        fontSize: 18,
       }
     }
 
@@ -51,9 +63,17 @@ const AppNavigator = StackNavigator( {
   ConcussionVid: { screen: ConcussionVid },
   CodeOfConduct: { screen: CodeOfConduct },
   ConcussionPolicy: { screen: ConcussionPolicy },
+  // Education modules
+  ConcussionOverview: { screen: ConcussionOverview },
+  SignsAndSymptoms: { screen: SignsAndSymptoms },
+  ConcussionRecovery: { screen: ConcussionRecovery },
+  ReturnToPlay: { screen: ReturnToPlay },
+
+
   // In Season
+  SHome: { screen: SHome },
   SymptomTest: { screen: SymptomTest },
-  SymptomProgress: { screen: SymptomProgress }
+  SymptomProgress: { screen: SymptomProgress },
 
 });
 

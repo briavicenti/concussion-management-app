@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 		margin: 5,
 	},
 	label: {
-		fontSize: 18 ,
+		fontSize: 22,
 		color: cAccent1,
 		flex: 1,
 	},
