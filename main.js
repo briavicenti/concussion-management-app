@@ -25,7 +25,9 @@ import SymptomProgress from './screens/SymptomProgress';
 
 const reducer = (state = {}, action) => {
   switch(action.type) {
-    case 'MARK_EDUCATION':
+    case 'MARK_COMPLETE':
+      return {...state, [action.section]: action.state};
+    case 'CHANGE_STAGE':
       return {...state, [action.section]: action.state};
     default:
       return state;

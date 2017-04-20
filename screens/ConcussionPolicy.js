@@ -188,7 +188,7 @@ export default class ConcussionPolicy extends React.Component {
 
 ConcussionPolicy = connect(
                         null, 
-                        dispatch => ({markComplete: () => {dispatch({section: 'concussionPolicy', type: 'MARK_EDUCATION', state: true})}})
+                        dispatch => ({markComplete: () => {dispatch({section: 'concussionPolicy', type: 'MARK_COMPLETE', state: true})}})
                         )(ConcussionPolicy);
 
 const styles = StyleSheet.create({

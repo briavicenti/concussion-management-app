@@ -184,7 +184,7 @@ export default class CodeOfConduct extends React.Component {
 
 CodeOfConduct = connect(
                         null, 
-                        dispatch => ({markComplete: () => {dispatch({section: 'codeOfConduct', type: 'MARK_EDUCATION', state: true})}})
+                        dispatch => ({markComplete: () => {dispatch({section: 'codeOfConduct', type: 'MARK_COMPLETE', state: true})}})
                         )(CodeOfConduct);
 
 const styles = StyleSheet.create({

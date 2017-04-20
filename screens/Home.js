@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -32,7 +33,7 @@ export default class Home extends React.Component {
             />
             <Text style={styles.welcomeText}>Thesis</Text>
 
-            <TouchableOpacity onPress={() => navigate('PSHome')}>
+            <TouchableOpacity onPress={() => { navigate('PSHome'); this.props.beginPS(); }}>
             <View style={styles.startedButton}>
             <Text style={styles.startedButtonText}>PSHome</Text>
             </View>
@@ -43,25 +44,6 @@ export default class Home extends React.Component {
             <Text style={styles.startedButtonText}>SHome</Text>
             </View>
             </TouchableOpacity>
-          
-
-            {/*
-            <TouchableOpacity onPress={() => navigate('SymptomTest')}>
-            <View style={styles.startedButton}>
-            <Text style={styles.startedButtonText}>Symptom Test</Text>
-            </View>
-            </TouchableOpacity>
-          */}
-        
-          
-
-            {/*
-            <TouchableOpacity onPress={() => navigate('SymptomProgress')}>
-            <View style={styles.startedButton}>
-            <Text style={styles.startedButtonText}>Symptom Progress</Text>
-            </View>
-            </TouchableOpacity>
-          */}
 
           </View>
       </BackgroundImage>
@@ -105,3 +87,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+Home = connect(
+                        null, 
+                        dispatch => ({beginPS: () => {dispatch({section: 'psStage', type: 'CHANGE_STAGE', state: 1})}})
+                        )(Home);

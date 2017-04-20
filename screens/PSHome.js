@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -24,14 +25,14 @@ import PBBaseline from '../components/PBBaseline';
 import ColoredButton from '../components/ColoredButton';
 
 export default class PSHome extends React.Component {
-  state = {
-    modalVisible: true,
-    progress: 2,
-  }
+  // state = {
+  //   //modalVisible: true,
+  //   progress: 1,
+  // }
   
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
+  // setModalVisible(visible) {
+  //   this.setState({modalVisible: visible});
+  // }
 
   static navigationOptions = {
     title: 'Pre-Season Home',
@@ -42,7 +43,7 @@ export default class PSHome extends React.Component {
 
     var content = (<Text>Invalid state</Text>);
 
-    switch(this.state.progress) {
+    switch(this.props.psStage) {
       case 1:
         content = (<PBVideo navigation={this.props.navigation}/>);
         break;
@@ -63,7 +64,7 @@ export default class PSHome extends React.Component {
         <Modal
             animationType={"slide"}
             transparent={true}
-            visible={this.state.modalVisible}
+            visible={this.props.firstPSVisit}
           >
           <View style={styles.popup}>
             <Header2>
@@ -74,7 +75,7 @@ export default class PSHome extends React.Component {
             <VerticalProgressBar/>
             <Text style={{fontSize: 18}}>Your deadline to complete these tasks is <Bold style={{fontSize: 18}}>Deadline</Bold>.</Text>
             <ColoredButton
-              onPress={() => {this.setModalVisible(false)}}>
+              onPress={() => {this.props.markFirstVisit()}}>
               Okay
             </ColoredButton>
           </View>
@@ -88,9 +89,16 @@ export default class PSHome extends React.Component {
         Welcome, Bria!
         </Header1>
 
-        <HorizontalProgressBar progress={this.state.progress}>
+        <HorizontalProgressBar progress={this.props.psStage}>
         {content}
         </HorizontalProgressBar>
+
+
+        {/*}
+        {(this.props.progress < 5) && 
+          <Header2>You're all done!</Header2>
+          <Text>Great job, you're now ready to begin your season. Click below to navigate to your in-season home screen</Text>
+          <ColoredButton></ColoredButton>}*/}
       </ScrollView>
     );
   }
@@ -114,3 +122,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
+
+// Handle progress state changes
+PSHome = connect(store => ({psStage: store.psStage}))(PSHome);
+
+// Handle first visit
+PSHome = connect(
+                        null, 
+                        dispatch => ({markFirstVisit: () => {dispatch({section: 'firstPSVisit', type: 'MARK_COMPLETE', state: false})}})
+                        )(PSHome);
+PSHome = connect(store => ({firstPSVisit: store.firstPSVisit}))(PSHome);
