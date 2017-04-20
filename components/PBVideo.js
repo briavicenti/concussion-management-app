@@ -13,14 +13,6 @@ import ColoredButton from '../components/ColoredButton';
 
 
 export default class PBVideo extends React.Component {
-	
-	// state = {
-	// 	watchedVid: this.props.watchedVid,
-	// }
-
-	// confirmWatched = () => {
-	// 	this.setState({watchedVid: true});
-	// }
 
 	handleClick = () => {
 		//Linking.openURL('https://www.youtube.com/watch?v=T3FLRDxbLXg&t=35s').catch(err => console.error('An error occurred', err));

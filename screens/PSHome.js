@@ -25,18 +25,12 @@ import PBBaseline from '../components/PBBaseline';
 import ColoredButton from '../components/ColoredButton';
 
 export default class PSHome extends React.Component {
-  // state = {
-  //   //modalVisible: true,
-  //   progress: 1,
-  // }
-  
-  // setModalVisible(visible) {
-  //   this.setState({modalVisible: visible});
-  // }
 
   static navigationOptions = {
     title: 'Pre-Season Home',
   };
+
+  checkEd
 
   render() {
     const { navigate } = this.props.navigation;
@@ -71,9 +65,9 @@ export default class PSHome extends React.Component {
             visible={this.props.firstPSVisit}
           >
           <View style={styles.popup}>
-            <Header2>
+            <Header3>
             Welcome to your pre-season home!
-            </Header2> 
+            </Header3> 
             <Text style={{fontSize: 18}}>Your athletic administrator has asked you to complete the
             following tasks before you start your season.</Text>
             <VerticalProgressBar/>
@@ -128,12 +122,12 @@ const styles = StyleSheet.create({
 });
 
 // Handle progress state changes
-PSHome = connect(store => ({psStage: store.psStage}))(PSHome);
-PSHome = connect(store => ({edStage: store.edStage}))(PSHome);
+PSHome = connect(store => ({psStage: store.psStage}))(PSHome); // Get progress stage
+PSHome = connect(store => ({edStage: store.edStage}))(PSHome); // Get education module stage
 PSHome = connect(
                         null, 
                         dispatch => ({markEdDone: () => {dispatch({section: 'psStage', type: 'CHANGE_STAGE', state: 3})}})
-                        )(PSHome);
+                        )(PSHome); // Mark education done
 
 
 // Handle first visit

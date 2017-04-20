@@ -1,5 +1,5 @@
 import React from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   View
@@ -13,17 +13,7 @@ export default class SymptomTest extends React.Component {
     title: 'Symptom Test',
   };
 
-  state = {
-    goToNext: false,
-  }
-
-  triggerNext(goToNext) {
-    this.setState({goToNext: goToNext});
-  }
-
   render() {
-    //const { navigate } = this.props.navigation;
-
 
     function shuffleArray(array) {
       for (var i = array.length - 1; i > 0; i--) {
@@ -35,22 +25,17 @@ export default class SymptomTest extends React.Component {
       return array;
     }
 
-    var symList = [<Headache/>, <BalanceProblems/>]
+    const symList = [<Headache symNum={this.props.symNum}/>]
     shuffleArray(symList);
-    var currSym = symList[0];
 
-    // i = 0;
-    // while (i < symList.length) {
-    //   if (this.state.goToNext) {
-    //     i++
-    //     currSym=symList[i];
-    //     triggerNext(false);
-    //   }
-    // }
+    if (this.props.symNum < symList.length) {
+      var currSym = symList[this.props.symNum];
+    }
 
     return (
 
       <View>
+        { (this.props.symNum < symList.length) && currSym }
         {currSym}
       </View>
     );
@@ -64,3 +49,13 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
 });
+
+SymptomTest = connect(store => ({symNum: store.symNum}))(SymptomTest);
+
+
+
+SymptomTest = connect(
+                        null, 
+                        dispatch => ({increaseSymNum: () => {dispatch({section: 'symNum', type: 'CHANGE_STAGE', state: store.symNum+1})}})
+                        )(SymptomTest); // Increase sym num
+

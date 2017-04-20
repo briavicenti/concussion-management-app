@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 	button: {
 	    backgroundColor: '#328F9C',
 	    padding: 10,
-	    width: 210,
+	    width: 280,
 	    marginTop: 20,
 	    borderRadius: 5,
 	    alignItems: 'center',

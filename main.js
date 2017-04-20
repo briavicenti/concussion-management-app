@@ -29,6 +29,8 @@ const reducer = (state = {}, action) => {
       return {...state, [action.section]: action.state};
     case 'CHANGE_STAGE':
       return {...state, [action.section]: action.state};
+    case 'INCREASE_STAGE':
+      return {...state, [action.section]: action.state+1};
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -28,49 +28,6 @@ export default class Headache extends React.Component {
   render() {
 
     var symColor = cAccent1;
-    // var currSym = (<Text>Invalid position</Text>)
-    
-    // if (this.state.rating == 0) {
-    //   currSym = (<View style={styles.descriptionBox}>
-    //              <Header3 style={{color: symColor, fontSize: 17}}>0. No headache.</Header3>
-    //              </View>);
-    // }
-    // if (this.state.rating == 1) {
-    //   currSym = (<View style={styles.descriptionBox}> 
-    //              <Header3 style={{color: symColor, fontSize: 17}}>1. Very mild to mild headache.</Header3>
-    //              <Text style={{fontSize: 17}}>Your headache is noticeable during daily activities but does not impair them.</Text>
-    //              </View>)
-    // }
-    // if (this.state.rating == 2) {
-    //   currSym = (<View style={styles.descriptionBox}> 
-    //              <Header3 style={{color: symColor, fontSize: 17}}>2. Mild to moderate headache.</Header3>
-    //              <Text style={{fontSize: 17}}>Still can carry on normal activities but may face more difficulty than usual because of your headache.</Text>
-    //              </View>)
-    // }
-    // if (this.state.rating == 3) {
-    //   currSym = (<View style={styles.descriptionBox}> 
-    //              <Header3 style={{color: symColor, fontSize: 17}}>3. Moderate headache.</Header3>
-    //              <Text style={{fontSize: 17}}>Your headache is distracting and you may feel the need to slow down.</Text>
-    //              </View>)
-    // }
-    // if (this.state.rating == 4) {
-    //   currSym = (<View style={styles.descriptionBox}> 
-    //              <Header3 style={{color: symColor, fontSize: 17}}>4. Moderate to severe headache.</Header3>
-    //              <Text style={{fontSize: 17}}>Your activities are limited and you may struggle to concentrate.</Text>
-    //              </View>)
-    // }
-    // if (this.state.rating == 5) {
-    //   currSym = (<View style={styles.descriptionBox}> 
-    //              <Header3 style={{color: symColor, fontSize: 17}}>5. Severe headache.</Header3>
-    //              <Text style={{fontSize: 17}}>Lots of resting, little to no activity, and you may have difficulty concentrating or thinking.</Text>
-    //              </View>)
-    // }
-    // if (this.state.rating == 6) {
-    //   currSym = (<View style={styles.descriptionBox}> 
-    //              <Header3 style={{color: symColor, fontSize: 17}}>6. Very severe headache.</Header3>
-    //              <Text style={{fontSize: 17}}>You have a hard time functioning at all and have difficulty speaking, thinking, and concentrating.</Text>
-    //              </View>)
-    // }
 
     return (
       <View>
@@ -109,7 +66,7 @@ export default class Headache extends React.Component {
                 />
         </View>
 
-        <ColoredButton style={{backgroundColor: symColor, marginBottom: 20, marginTop: 5,}}>
+        <ColoredButton style={{backgroundColor: symColor, marginBottom: 20, marginTop: 5,}} onClick={this.props.increaseSymNum()}>
         <Text style={{fontSize: 20}}>Submit</Text>
         </ColoredButton>
 
@@ -133,3 +90,9 @@ const styles = StyleSheet.create({
     backgroundColor: gAccent1,
   }
 });
+
+//Headache = connect(store => ({symNum: store.symNum}))(Headache);
+Headache = connect(
+                        null, 
+                        dispatch => ({increaseSymNum: () => {dispatch({section: 'symNum', type: 'CHANGE_STAGE', state: this.props.symNum+1})}})
+                        )(Headache); // Increase sym num

@@ -11,7 +11,7 @@ import { Header2, Bold } from '../components/TextComponents';
 import ColoredButton from '../components/ColoredButton';
 
 
-export default class PBWaiver extends React.Component {
+export default class PBBaseline extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
@@ -24,7 +24,7 @@ export default class PBWaiver extends React.Component {
 			</Text>
 
 			<Bold>Please respond honestly about any symptoms you have experienced in the last 24 hours</Bold>
-            <ColoredButton onPress={() => navigate('SymptomTest')}>
+            <ColoredButton onPress={() => { navigate('SymptomTest'); this.props.startSymNum(); }}>
             Begin Test
             </ColoredButton>
             </View>
@@ -32,3 +32,7 @@ export default class PBWaiver extends React.Component {
 	}
 }
 
+PBBaseline = connect(
+                        null, 
+                        dispatch => ({startSymNum: () => {dispatch({section: 'symNum', type: 'CHANGE_STAGE', state: 0})}})
+                        )(PBBaseline); // Increase sym num

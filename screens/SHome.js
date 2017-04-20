@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -40,26 +41,10 @@ export default class SHome extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    var content = (<Text>Invalid state</Text>);
-
-    switch(this.state.progress) {
-      case 1:
-        content = (<PBVideo navigation={this.props.navigation}/>);
-        break;
-      case 2: 
-        content = (<PBEducation navigation={this.props.navigation}/>);
-        break;
-      case 3: 
-        content = (<PBWaiver navigation={this.props.navigation}/>);
-        break;
-      case 4:
-        content = (<PBBaseline navigation={this.props.navigation}/>);
-        break;
-    }
-
     return (
       <ScrollView style={styles.container}>
         {/* TO DO: This should only pop up on the first visit*/}
+        {/*}
         <Modal
             animationType={"slide"}
             transparent={true}
@@ -79,6 +64,7 @@ export default class SHome extends React.Component {
             </ColoredButton>
           </View>
         </Modal>
+      */}
 
         <Image
             source={require('../assets/brain.png')}
@@ -88,9 +74,26 @@ export default class SHome extends React.Component {
         Welcome, Bria!
         </Header1>
 
-        <HorizontalProgressBar progress={this.state.progress}>
-        {content}
-        </HorizontalProgressBar>
+        <ColoredButton onPress={() => { navigate('SymptomTest'); this.props.startSymNum(); }}>
+        Begin Test
+        </ColoredButton>
+
+        <ColoredButton onPress={() => navigate('ConcussionOverview')}>
+        CO
+        </ColoredButton>
+
+        <ColoredButton onPress={() => navigate('SignsAndSymptoms')}>
+        S&S
+        </ColoredButton>
+
+        <ColoredButton onPress={() => navigate('ConcussionRecovery')}>
+        CR
+        </ColoredButton>
+
+        <ColoredButton onPress={() => navigate('ReturnToPlay')}>
+        RTP
+        </ColoredButton>
+
       </ScrollView>
     );
   }
@@ -114,3 +117,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
+
+SHome = connect(
+                        null, 
+                        dispatch => ({startSymNum: () => {dispatch({section: 'symNum', type: 'CHANGE_STAGE', state: 0})}})
+                        )(SHome); // Start sym test

@@ -14,7 +14,7 @@ import {
 export class Bold extends React.Component {
 	render() {
 		return (
-			<Text style={[{fontWeight: 'bold'}, this.props.style]}>
+			<Text style={[{fontWeight: 'bold', color: this.props.color}, this.props.style]}>
 				{this.props.children}
 			</Text>
 		);
@@ -24,7 +24,7 @@ export class Bold extends React.Component {
 export class BlockText extends React.Component {
 	render() {
 		return (
-			<Text style={[{fontSize: 12}, this.props.style]}>
+			<Text style={[{fontSize: 16}, this.props.style]}>
 				{this.props.children}
 			</Text>
 		);
@@ -34,9 +34,9 @@ export class BlockText extends React.Component {
 export class Bullet extends React.Component {
 	render() {
 		return (
-			<View style={{flexDirection: 'row'}}>
-        	<Text style={{fontSize: 12}}>{'\u2022'}</Text>
-        	<Text style={[{flex: 1, paddingLeft: 3, paddingBottom: 3}, this.props.style]}>
+			<View style={{flexDirection: 'row', marginLeft: 15, marginBottom: 5}}>
+        	<Text style={{fontSize: 14, color: this.props.color, marginTop: 3}}>{'\u2022'}</Text>
+        	<Text style={[{flex: 1, marginLeft: 10}, this.props.style]}>
         		{this.props.children}
         	</Text>
       		</View>
@@ -86,13 +86,13 @@ export class Header4 extends React.Component {
 
 const styles = StyleSheet.create({
 	header1: {
-		fontSize: 22,
+		fontSize: 26,
 		color: cAccent2,
 		fontWeight: 'bold',
 		marginVertical: 5,
 	},
 	header2: {
-		fontSize: 18,
+		fontSize: 22,
 		color: cAccent2,
 		fontWeight: 'bold',
 		marginTop: 5,
@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
 
 	},
 	header3: {
-		fontSize: 15,
+		fontSize: 18,
 		color: cAccent3,
 		fontWeight: 'bold',
 		marginVertical: 5,
 	},
 	header4: {
-		fontSize: 13,
+		fontSize: 16,
 		color: cAccent3,
 		fontWeight: 'bold',
 		marginVertical: 5,
