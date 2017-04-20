@@ -58,6 +58,10 @@ export default class PSHome extends React.Component {
         break;
     }
 
+    if (this.props.edStage > 4) {
+      this.props.markEdDone();
+    }
+
     return (
       <ScrollView style={styles.container}>
         {/* TO DO: This should only pop up on the first visit*/}
@@ -125,6 +129,12 @@ const styles = StyleSheet.create({
 
 // Handle progress state changes
 PSHome = connect(store => ({psStage: store.psStage}))(PSHome);
+PSHome = connect(store => ({edStage: store.edStage}))(PSHome);
+PSHome = connect(
+                        null, 
+                        dispatch => ({markEdDone: () => {dispatch({section: 'psStage', type: 'CHANGE_STAGE', state: 3})}})
+                        )(PSHome);
+
 
 // Handle first visit
 PSHome = connect(

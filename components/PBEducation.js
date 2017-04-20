@@ -25,7 +25,6 @@ export default class PBEducation extends React.Component {
 		var compTracker = [false,false, false, false]
 		
 		switch(this.props.edStage) {
-			
 			case 2:
 				navTo = "SignsAndSymptoms";
 				currTracker = [false, true, false, false]
@@ -49,12 +48,10 @@ export default class PBEducation extends React.Component {
 		                                         (<ColoredButton onPress={() => { navigate(navTo); this.props.beginEd(); }}>Begin Training</ColoredButton>);
 
 		return (
+
 			<View>
-
 			<Header2>Education Module</Header2>
-
 			<Text style={{marginBottom: 15,}}>Complete your concussion education training by reading through the four modules below.</Text>
-
 			<ProgressStage complete={compTracker[0]} current={currTracker[0]}>
 			1. Concussion Overview
 			</ProgressStage>

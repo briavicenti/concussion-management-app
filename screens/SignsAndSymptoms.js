@@ -37,7 +37,7 @@ export default class SignsAndSymptoms extends React.Component {
             <ColoredButton 
                 onPress={() => {
                                 this.props.navigation.navigate('PSHome');
-                                this.props.markComplete();
+                                this.props.markSectionDone();
                             }}>
             Submit
             </ColoredButton>
@@ -54,3 +54,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
 });
+
+SignsAndSymptoms = connect(
+                        null, 
+                        dispatch => ({markSectionDone: () => {dispatch({section: 'edStage', type: 'CHANGE_STAGE', state: 3})}})
+                        )(SignsAndSymptoms);

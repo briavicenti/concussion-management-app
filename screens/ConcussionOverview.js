@@ -36,7 +36,7 @@ export default class ConcussionOverview extends React.Component {
 
             <ColoredButton 
                 onPress={() => {
-                                this.props.navigation.navigate('SignsAndSymptoms');
+                                this.props.navigation.navigate('PSHome');
                                 this.props.markSectionDone();
                             }}>
             Next Module
