@@ -78,20 +78,8 @@ export default class SHome extends React.Component {
         Begin Test
         </ColoredButton>
 
-        <ColoredButton onPress={() => navigate('ConcussionOverview')}>
-        CO
-        </ColoredButton>
-
-        <ColoredButton onPress={() => navigate('SignsAndSymptoms')}>
-        S&S
-        </ColoredButton>
-
-        <ColoredButton onPress={() => navigate('ConcussionRecovery')}>
-        CR
-        </ColoredButton>
-
-        <ColoredButton onPress={() => navigate('ReturnToPlay')}>
-        RTP
+        <ColoredButton onPress={() => navigate('ConcussionPolicy')}>
+        CP
         </ColoredButton>
 
       </ScrollView>

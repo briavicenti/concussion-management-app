@@ -13,11 +13,8 @@ import ProgressStage from '../components/ProgressStage';
 
 
 export default class PBEducation extends React.Component {
-	// state = {
-	// 	stage: 0,
-	// }
-
 	render() {
+
 		const { navigate } = this.props.navigation;
 
 		var navTo = "ConcussionOverview";
@@ -26,26 +23,24 @@ export default class PBEducation extends React.Component {
 		
 		switch(this.props.edStage) {
 			case 2:
-				navTo = "SignsAndSymptoms";
+				//navTo = "SignsAndSymptoms";
 				currTracker = [false, true, false, false]
 				compTracker = [true, false, false, false]
 				break;
 			case 3: 
-				navTo = "ConcussionRecovery";
+				//navTo = "ConcussionRecovery";
 				currTracker = [false, false, true, false]
 				compTracker = [true, true, false, false]
 				break;
 			case 4:
-				navTo = "ReturnToPlay";
+				//navTo = "ReturnToPlay";
 				currTracker = [false, false, false, true]
 				compTracker = [true, true, true, false]
 				break;
 		}
 
-		var stage = this.props.edStage;
-
-		var button = ( this.props.edStage > 0) ? (<ColoredButton onPress={() => navigate(navTo)}>Resume Training</ColoredButton>) : 
-		                                         (<ColoredButton onPress={() => { navigate(navTo); this.props.beginEd(); }}>Begin Training</ColoredButton>);
+		var button = ( this.props.edStage > 0) ? (<ColoredButton onPress={() => navigate('EdModules')}>Resume Training</ColoredButton>) : 
+		                                         (<ColoredButton onPress={() => { navigate('EdModules'); this.props.beginEd(); }}>Begin Training</ColoredButton>);
 
 		return (
 

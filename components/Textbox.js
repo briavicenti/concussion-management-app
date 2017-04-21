@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#fff',
     color: gAccent1,
-    fontSize: 13,
+    fontSize: 16,
     padding: 5,
     margin: 5,
   }

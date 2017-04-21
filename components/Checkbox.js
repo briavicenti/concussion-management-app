@@ -32,7 +32,7 @@ export default class Checkbox extends React.Component {
 				{this.state.checked && <FontAwesome name='check' style={{color: gAccent1}}/>}
 				</View>
 			</TouchableWithoutFeedback>
-			<Text style={{flex: 1, alignSelf: 'flex-start'}}>{this.props.children}</Text>
+			<Text style={{flex: 1, alignSelf: 'center'}}>{this.props.children}</Text>
 			</View>
 		);
 	}
@@ -41,8 +41,9 @@ export default class Checkbox extends React.Component {
 const styles = StyleSheet.create({
   container: {
   	flexDirection: 'row',
-  	alignItems: 'center',
+  	//alignItems: 'center',
   	marginBottom: 10,
+    marginLeft: 15,
   	//marginHorizontal: 10,
   	//flexWrap: 'wrap',
   },
@@ -52,7 +53,8 @@ const styles = StyleSheet.create({
   	backgroundColor: '#fff',
   	borderColor: gAccent1,
   	borderWidth: 1,
-  	marginRight: 5,
+  	marginRight: 10,
+    marginTop: 6,
   	alignItems: 'center',
   	justifyContent: 'center',
   },

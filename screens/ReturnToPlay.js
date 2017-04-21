@@ -32,6 +32,7 @@ export default class ReturnToPlay extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    
     return (
 
         <ScrollView contentContainerStyle={styles.container}>

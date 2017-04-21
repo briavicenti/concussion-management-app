@@ -35,6 +35,7 @@ export default class ConcussionOverview extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    
     return (
 
         <ScrollView contentContainerStyle={styles.container}>
@@ -102,7 +103,7 @@ export default class ConcussionOverview extends React.Component {
 
             <ColoredButton 
                 onPress={() => {
-                                this.props.navigation.navigate('PSHome');
+                                //this.props.navigation.navigate('EdModules');
                                 this.props.markSectionDone();
                             }}>
             Next Module

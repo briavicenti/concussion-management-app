@@ -11,10 +11,11 @@ import ConcussionPolicy from './screens/ConcussionPolicy';
 import ConcussionVid from './screens/ConcussionVid';
 
 // education modules
-import ConcussionOverview from './screens/ConcussionOverview';
-import SignsAndSymptoms from './screens/SignsAndSymptoms';
-import ConcussionRecovery from './screens/ConcussionRecovery';
-import ReturnToPlay from './screens/ReturnToPlay';
+import EdModules from './screens/EdModules'
+// import ConcussionOverview from './screens/ConcussionOverview';
+// import SignsAndSymptoms from './screens/SignsAndSymptoms';
+// import ConcussionRecovery from './screens/ConcussionRecovery';
+// import ReturnToPlay from './screens/ReturnToPlay';
 
 // in season
 import SHome from './screens/SHome';
@@ -68,10 +69,11 @@ const AppNavigator = StackNavigator( {
   CodeOfConduct: { screen: CodeOfConduct },
   ConcussionPolicy: { screen: ConcussionPolicy },
   // Education modules
-  ConcussionOverview: { screen: ConcussionOverview },
-  SignsAndSymptoms: { screen: SignsAndSymptoms },
-  ConcussionRecovery: { screen: ConcussionRecovery },
-  ReturnToPlay: { screen: ReturnToPlay },
+  EdModules: { screen: EdModules },
+  // ConcussionOverview: { screen: ConcussionOverview },
+  // SignsAndSymptoms: { screen: SignsAndSymptoms },
+  // ConcussionRecovery: { screen: ConcussionRecovery },
+  // ReturnToPlay: { screen: ReturnToPlay },
 
 
   // In Season
