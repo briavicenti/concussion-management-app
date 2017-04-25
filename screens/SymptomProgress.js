@@ -21,7 +21,6 @@ export default class SymptomProgress extends React.Component {
 
       // Total symptoms to date: bar chart of 4 symptoms
       <View>
-      <Text>Meow</Text>
 
       <TotalSymptomsGraph test={true}/>
 

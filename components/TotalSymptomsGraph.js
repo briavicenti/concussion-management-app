@@ -12,7 +12,7 @@ import {
   cAccent3,
   cAccent4,
   cAccent5,
-  gAccent1,
+  gAccent2,
 } from '../assets/styles';
 import { Bar } from 'react-native-pathjs-charts';
 
@@ -131,19 +131,19 @@ export default class TotalSymptomsGraph extends React.Component {
     let data = [
       [{
        "v": totalE,
-       "name": "Emotional"
+       "name": totalE,
       }],
       [{
        "v": totalS,
-       "name": "Sleep"
+       "name": totalS,
       }],
       [{
        "v": totalC,
-       "name": "Cognitive"
+       "name": totalC,
       }],
       [{
        "v": totalP,
-       "name": "Physical"
+       "name": totalP,
       }],
     ]
 
@@ -160,7 +160,7 @@ export default class TotalSymptomsGraph extends React.Component {
       margin: {
         top: 20,
         left: 25,
-        bottom: 50,
+        bottom: 10,
         right: 20
       },
       color: cAccent1,
@@ -204,10 +204,38 @@ export default class TotalSymptomsGraph extends React.Component {
     return (
 
       // Total symptoms to date: bar chart of 4 symptoms
-      <View style={{backgroundColor: '#fff', margin: 20, alignItems: 'center', justifyContent: 'center'}}>
-      <Text style={{color: gAccent1, fontSize: 24, fontWeight: 'bold', marginTop: 15}}>Total Symptoms to Date</Text>
+      <View style={{backgroundColor: '#fff', margin: 20, alignItems: 'center', justifyContent: 'center', paddingBottom: 10,}}>
+        <Text style={{color: gAccent2, fontSize: 24, fontWeight: 'bold', marginTop: 15}}>Total Symptoms to Date</Text>
 
-      <Bar data={data} options={options} pallete={pallete} accessorKey='v'/>
+        <Bar data={data} options={options} pallete={pallete} accessorKey='v'/>
+
+
+        <View style={{alignSelf: 'center', width: 250, flexDirection: 'row', marginBottom: 15,}}>
+        <Text style={{color: cAccent1, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalE}</Text>
+        <Text style={{color: cAccent2, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalS}</Text>
+        <Text style={{color: cAccent4, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalC}</Text>
+        <Text style={{color: cAccent5, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalP}</Text>
+        </View>
+
+        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+            <View style={{backgroundColor: cAccent1, height: 25, width: 30, marginRight: 10,}}/>
+            <Text style={{color: cAccent1, fontSize: 18,}}>Emotional Symptom Ratings</Text>
+        </View>
+
+        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+            <View style={{backgroundColor: cAccent2, height: 25, width: 30, marginRight: 10,}}/>
+            <Text style={{color: cAccent2, fontSize: 18,}}>Sleep Symptom Ratings</Text>
+        </View>
+
+        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+            <View style={{backgroundColor: cAccent4, height: 25, width: 30, marginRight: 10,}}/>
+            <Text style={{color: cAccent4, fontSize: 18,}}>Cognitive Symptom Ratings</Text>
+        </View>
+
+        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+            <View style={{backgroundColor: cAccent5, height: 25, width: 30, marginRight: 10,}}/>
+            <Text style={{color: cAccent5, fontSize: 18,}}>Physical Symptom Ratings</Text>
+        </View>
 
       </View>
 
