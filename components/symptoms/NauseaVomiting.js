@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class NauseaVomiting extends React.Component {
 
   state = {
     rating: 0,
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>Nausea / Vomiting</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ={"Nausea / Vomiting"}
+          d1="You have slight nausea or have vomited once or twice but your activities are not impaired. May have slightly reduced appetite but can still eat most foods."
+          d2="You have persistent but mild nausea and you may vomit occasionally. May have reduced appetite but can still eat with effort."
+          d3="You vomit more frequently and generally feel ill in between. Not much appetite, it takes a great effort for you to eat and you are more careful about what you are eating."
+          d4="You vomit frequently and generally feel nauseous. You may eat only very mild foods or not at all. You may fear being around very strong smells."
+          d5="You vomit and feel nauseous consistently. You likely do not eat or drink much, and have had very little success keeping food down. You avoid strong smells and being around food."
+          d6="You have not been able to eat or drink anything without vomiting, and you may not be able to be around any food without severe discomfort."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+NauseaVomiting = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(NauseaVomiting);

@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native';
 import {
-  cAccent5,
+  cAccent4,
   gAccent1,
 } from '../../assets/styles.js';
 import ColoredButton from '../../components/ColoredButton';
@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class DifficultyConcentrating extends React.Component {
 
   state = {
     rating: 0,
@@ -31,7 +31,7 @@ export default class BalanceProblems extends React.Component {
       }
     }
 
-    var symColor = cAccent5;
+    var symColor = cAccent4;
 
     return (
       <View>
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>Difficulty Concentrating</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ="difficulty concentrating"
+          d1="You may find yourself struggling to concentrate in certain situations, but you can still complete your daily activities."
+          d2="You find yourself regularly struggling to concentrate in certain situations, and may experience slight difficulty in concentrating throughout the day."
+          d3="Many of your daily activities are impacted by your difficulty concentrating and you may struggle to concentrate even more in certain situations."
+          d4="You regularly struggle to concentrate throughout the day and you find yourself unable to complete many activities due to your inability to concentrate."
+          d5="You struggle to complete most activities due to your inability to concentrate."
+          d6="You are totally unable to start and complete even the most basic activities because of your inability to concentrate."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+DifficultyConcentrating = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(DifficultyConcentrating);

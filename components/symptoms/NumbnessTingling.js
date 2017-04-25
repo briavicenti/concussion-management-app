@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class NumbnessTingling extends React.Component {
 
   state = {
     rating: 0,
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>Numbness / Tingling</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ="numbness / tingling"
+          d1="You may experience numbness or tingling for short periods of time following triggers like sitting still, but normal sensation returns relatively quickly."
+          d2="You experience numbness and/or tingling for moderate periods of time following triggers like sitting still but normal sensation still returns. "
+          d3="You experience numbness and/or tingling for prolonged periods of time following triggers like sitting still and normal sensation is slow to return."
+          d4="You experience numbness and/or tingling for much of the day and struggle to get normal sensation to return, particularly if the numbness / tingling was triggered in in a particular way."
+          d5="You experience numbness and/or tingling throughout most of the day and can only occasionally get normal sensation to return if it does at all. "
+          d6="You experience numbness and/or tingling at all times, and nothing you do can get normal sensation back."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+NumbnessTingling = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(NumbnessTingling);

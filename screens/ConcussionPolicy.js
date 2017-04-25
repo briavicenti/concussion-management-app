@@ -24,12 +24,32 @@ import ColoredButton from '../components/ColoredButton';
 
 export default class ConcussionPolicy extends React.Component {
   
+    state = {
+        firstName: "First name",
+        lastName: "Last name",
+        date: "Date (MM/DD/YY)",
+    }
+
+    updateFirstName = (firstName) => {
+        this.setState({firstName: firstName});
+    }
+
+    updateLastName = (lastName) => {
+        this.setState({lastName: lastName});
+    }
+
+    updateDate = (date) => {
+        this.setState({date: date});
+    }
+
+
   static navigationOptions = {
     title: 'Concussion Policy',
   };
 
   render() {
     const { navigate } = this.props.navigation;
+
     return (
 
       <ScrollView contentContainerStyle={styles.container}>
@@ -158,11 +178,15 @@ export default class ConcussionPolicy extends React.Component {
                 placeholder='First name' 
                 style={{flex: 1}}
                 autoCorrect={false}
+                value = {this.state.firstName}
+                handler={this.updateFirstName}
             />
             <Textbox 
                 placeholder='Last name' 
                 style={{flex: 1}}
                 autoCorrect={false}
+                value={this.state.lastName}
+                handler={this.updateLastName}
             />
         </View>
 
@@ -171,6 +195,8 @@ export default class ConcussionPolicy extends React.Component {
             placeholder='Date (MM/DD/YYYY)' 
             style={{flex: 1}}
             autoCorrect={false}
+            value={this.state.date}
+            handler={this.updateDate}
         />
 
         <ColoredButton onPress={() => { 

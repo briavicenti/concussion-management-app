@@ -10,6 +10,8 @@
     "react": "~15.4.0",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz",
     "react-native-global-props": "^1.1.1",
+    "react-native-pathjs-charts": "0.0.27",
+    "react-native-selectme": "^1.2.3",
     "react-native-slider": "^0.9.1",
     "react-native-svg": "^5.1.7",
     "react-native-vector-icons": "^4.0.1",
@@ -18,6 +20,6 @@
     "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "victory-native": "^0.7.2"
+    "victory-native": "^0.8.0"
   }
 }

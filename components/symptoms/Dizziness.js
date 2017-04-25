@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class Dizziness extends React.Component {
 
   state = {
     rating: 0,
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>{symName}</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ={symName}
+          d1="Your dizziness is noticeable during daily activities but does not impair them."
+          d2="Still can carry on normal activities but may face more difficulty than usual, particular while moving around."
+          d3="You are distracted by your dizziness and feel the need to slow down or stay more stationary than normal. "
+          d4="Your activities are fairly limited, you fear falling over when moving around, and you may feel dizzy even when resting."
+          d5="You are participating in few or none of your normal activities because of your dizziness, fear falling or may have fallen while moving around, and feel dizzy even when resting."
+          d6="You are incapacitated by your dizziness and resting and remaining completely stationary fail to help you feel better."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+Dizziness = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(Dizziness);

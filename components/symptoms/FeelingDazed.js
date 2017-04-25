@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native';
 import {
-  cAccent5,
+  cAccent4,
   gAccent1,
 } from '../../assets/styles.js';
 import ColoredButton from '../../components/ColoredButton';
@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class FeelingDazed extends React.Component {
 
   state = {
     rating: 0,
@@ -31,7 +31,7 @@ export default class BalanceProblems extends React.Component {
       }
     }
 
-    var symColor = cAccent5;
+    var symColor = cAccent4;
 
     return (
       <View>
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>Feeling Dazed / "Foggy"</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ="feelings of being dazed or foggy"
+          d1="You may find yourself feeling dazed or foggy in certain situations, but you can still complete your daily activities."
+          d2="You find yourself regularly feeling dazed in certain situations, and may experience slight difficulty in thinking or reacting normally throughout the day."
+          d3="Many of your daily activities are impacted by your feelings of fogginess and you often struggle to think or react as you normally do."
+          d4="You regularly feel foggy and have difficulty thinking clearly throughout the day and you find yourself unable to complete many activities due to your feelings of being dazed."
+          d5="You struggle to complete most activities due to your feelings of fogginess and inability to think or react as you normally do."
+          d6="You are totally unable to complete even the most basic activities because of your feelings of fogginess and inability to think and react as you normally do."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+FeelingDazed = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(FeelingDazed);

@@ -30,9 +30,8 @@ export default class PSHome extends React.Component {
     title: 'Pre-Season Home',
   };
 
-  checkEd
-
   render() {
+
     const { navigate } = this.props.navigation;
 
     var content = (<Text>Invalid state</Text>);
@@ -58,7 +57,6 @@ export default class PSHome extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        {/* TO DO: This should only pop up on the first visit*/}
         <Modal
             animationType={"slide"}
             transparent={true}
@@ -71,7 +69,7 @@ export default class PSHome extends React.Component {
             <Text style={{fontSize: 18}}>Your athletic administrator has asked you to complete the
             following tasks before you start your season.</Text>
             <VerticalProgressBar/>
-            <Text style={{fontSize: 18}}>Your deadline to complete these tasks is <Bold style={{fontSize: 18}}>Deadline</Bold>.</Text>
+            <Text style={{fontSize: 18}}>Your deadline to complete these tasks is <Bold style={{fontSize: 18}}>5/6/17</Bold>.</Text>
             <ColoredButton
               onPress={() => {this.props.markFirstVisit()}}>
               Okay
@@ -84,19 +82,13 @@ export default class PSHome extends React.Component {
             style={styles.logoContainer}
         />
         <Header1 style={{marginLeft: 20, marginBottom: 5,}}>
-        Welcome, Bria!
+        Welcome, {this.props.userInfo.firstName}!
         </Header1>
 
         <HorizontalProgressBar progress={this.props.psStage}>
         {content}
         </HorizontalProgressBar>
 
-
-        {/*}
-        {(this.props.progress < 5) && 
-          <Header2>You're all done!</Header2>
-          <Text>Great job, you're now ready to begin your season. Click below to navigate to your in-season home screen</Text>
-          <ColoredButton></ColoredButton>}*/}
       </ScrollView>
     );
   }
@@ -121,18 +113,25 @@ const styles = StyleSheet.create({
   },
 });
 
+
+PSHome = connect(store => ({userInfo: store.userInfo || {}, psStage: store.psStage, edStage: store.edStage, firstPSVisit: store.firstPSVisit}),
+                 dispatch => ({markEdDone: () => {dispatch({section: 'psStage', type: 'CHANGE_STAGE', state: 3,})},
+                               markFirstVisit: () => {dispatch({section: 'firstPSVisit', type: 'MARK_COMPLETE', state: false})},
+                             })
+                 )(PSHome); // Get progress stage
+
 // Handle progress state changes
-PSHome = connect(store => ({psStage: store.psStage}))(PSHome); // Get progress stage
-PSHome = connect(store => ({edStage: store.edStage}))(PSHome); // Get education module stage
-PSHome = connect(
-                        null, 
-                        dispatch => ({markEdDone: () => {dispatch({section: 'psStage', type: 'CHANGE_STAGE', state: 3})}})
-                        )(PSHome); // Mark education done
+// PSHome = connect(store => ({psStage: store.psStage}))(PSHome); // Get progress stage
+// PSHome = connect(store => ({edStage: store.edStage}))(PSHome); // Get education module stage
+// PSHome = connect(
+//                         null, 
+//                         dispatch => ({markEdDone: () => {dispatch({section: 'psStage', type: 'CHANGE_STAGE', state: 3})}})
+//                         )(PSHome); // Mark education done
 
 
 // Handle first visit
-PSHome = connect(
-                        null, 
-                        dispatch => ({markFirstVisit: () => {dispatch({section: 'firstPSVisit', type: 'MARK_COMPLETE', state: false})}})
-                        )(PSHome);
-PSHome = connect(store => ({firstPSVisit: store.firstPSVisit}))(PSHome);
+// PSHome = connect(
+//                         null, 
+//                         dispatch => ({markFirstVisit: () => {dispatch({section: 'firstPSVisit', type: 'MARK_COMPLETE', state: false})}})
+//                         )(PSHome);
+//PSHome = connect(store => ({firstPSVisit: store.firstPSVisit}))(PSHome);

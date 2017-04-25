@@ -21,23 +21,23 @@ export default class SymDescription extends React.Component {
 
 		switch(this.props.rating) {
 			case 0:
-				currTitle = "0. No "+this.props.sym;
+				currTitle = "0. No "+this.props.sym.toLowerCase()+".";
 				currSym="";
 				break;
 			case 1:
-				currTitle="1. Very mild to mild";
+				currTitle="1. Very mild to mild.";
 				currSym=this.props.d1;
 				break;
 			case 2: 
-				currTitle="2. Mild to moderate";
+				currTitle="2. Mild to moderate.";
 				currSym=this.props.d2;
 				break;
 			case 3: 
-				currTitle="3. Moderate";
+				currTitle="3. Moderate.";
 				currSym=this.props.d3;
 				break;
 			case 4: 
-				currTitle="4. Moderate to severe";
+				currTitle="4. Moderate to severe.";
 				currSym=this.props.d4;
 				break;
 			case 5: 
@@ -45,15 +45,15 @@ export default class SymDescription extends React.Component {
 				currSym=this.props.d5;
 				break;
 			case 6: 
-				currTitle="6. Very severe";
+				currTitle="6. Very severe.";
 				currSym=this.props.d6;
 				break;
 		}
 		
 		return (
 			<View style={styles.descriptionBox}>
-			<Header3 style={{color: symColor, fontSize: 17}}>{currTitle}</Header3>
-			<Text style={{fontSize: 16}}>{currSym}</Text>
+			<Header3 style={{color: symColor, fontSize: 24}}>{currTitle}</Header3>
+			<Text style={{fontSize: 20,}}>{currSym}</Text>
 			</View>
 
 		);
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
 	    //flex: 1,
 	    justifyContent: 'center',
 	    alignItems: 'center',
-	    height: 190,
-	    padding: 10,
+	    height: 290,
+	    padding: 20,
 	    backgroundColor: '#fff',
     },
 	

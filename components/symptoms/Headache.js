@@ -6,14 +6,9 @@ import {
   Text
 } from 'react-native';
 import {
-  cAccent1,
+  cAccent5,
   gAccent1,
 } from '../../assets/styles.js';
-import {
-  Header3,
-  Bold,
-  BlockText,
-} from '../../components/TextComponents';
 import ColoredButton from '../../components/ColoredButton';
 import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
@@ -27,7 +22,16 @@ export default class Headache extends React.Component {
 
   render() {
 
-    var symColor = cAccent1;
+    var prevRatings = [];
+    var symName = this.props.symName;
+
+    if (this.props.symptomRatings) {
+      if (this.props.symptomRatings[symName]) {
+        prevRatings = this.props.symptomRatings[symName];
+      }
+    }
+
+    var symColor = cAccent5;
 
     return (
       <View>
@@ -37,13 +41,13 @@ export default class Headache extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Headache</Text>
+          <Text style={styles.symptomTitle}>{symName}</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ="headache"
+          sym ={symName}
           d1="You have a slight or occasional headache, but your normal activities are not impaired."
           d2="You still can carry on normal activities but may face more difficulty than usual because of your headache."
           d3="Your headache is distracting and you may need to stop or avoid certain activities to not exacerbate it."
@@ -66,7 +70,7 @@ export default class Headache extends React.Component {
                 />
         </View>
 
-        <ColoredButton style={{backgroundColor: symColor, marginBottom: 20, marginTop: 5,}} onClick={this.props.increaseSymNum()}>
+        <ColoredButton style={{backgroundColor: symColor, marginBottom: 20, marginTop: 5,}} onPress={() => { this.props.onSubmit(); this.props.updateRating(symName, prevRatings.concat(this.state.rating)); }}>
         <Text style={{fontSize: 20}}>Submit</Text>
         </ColoredButton>
 
@@ -91,8 +95,8 @@ const styles = StyleSheet.create({
   }
 });
 
-//Headache = connect(store => ({symNum: store.symNum}))(Headache);
-Headache = connect(
-                        null, 
-                        dispatch => ({increaseSymNum: () => {dispatch({section: 'symNum', type: 'CHANGE_STAGE', state: this.props.symNum+1})}})
-                        )(Headache); // Increase sym num
+
+Headache = connect(store => ({symptomRatings: store.symptomRatings}),
+                   dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
+                               })
+                   )(Headache);

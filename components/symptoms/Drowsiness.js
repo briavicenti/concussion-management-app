@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native';
 import {
-  cAccent5,
+  cAccent2,
   gAccent1,
 } from '../../assets/styles.js';
 import ColoredButton from '../../components/ColoredButton';
@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class Drowsiness extends React.Component {
 
   state = {
     rating: 0,
@@ -31,7 +31,7 @@ export default class BalanceProblems extends React.Component {
       }
     }
 
-    var symColor = cAccent5;
+    var symColor = cAccent2;
 
     return (
       <View>
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>{symName}</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ={symName}
+          d1="Noticeable during daily activities but does not impair them. You may feel slightly more drowsy in certain activities."
+          d2="Still can carry on normal activities but you may face more difficulty than usual or may need to nap throughout the day."
+          d3="You are distracted by your drowsiness and feel the need to take naps in order to make it through the day."
+          d4="You cannot make it through the day without extra sleep and feel drowsy most of the time you are awake."
+          d5="You complete few of your normal activities without extra sleep and feel drowsy any time you are awake."
+          d6="Even if you are able to remain awake your activities are severely limited and you constantly feel the need to be sleeping or napping."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+Drowsiness = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(Drowsiness);

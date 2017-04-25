@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native';
 import {
-  cAccent5,
+  cAccent2,
   gAccent1,
 } from '../../assets/styles.js';
 import ColoredButton from '../../components/ColoredButton';
@@ -14,7 +14,7 @@ import SliderText from '../../components/SliderText';
 import SymDescription from '../../components/SymDescription';
 import Slider from 'react-native-slider';
 
-export default class BalanceProblems extends React.Component {
+export default class IncreasedSleep extends React.Component {
 
   state = {
     rating: 0,
@@ -31,7 +31,7 @@ export default class BalanceProblems extends React.Component {
       }
     }
 
-    var symColor = cAccent5;
+    var symColor = cAccent2;
 
     return (
       <View>
@@ -41,19 +41,19 @@ export default class BalanceProblems extends React.Component {
                        paddingHorizontal: 10,
                        height: 110,
                        backgroundColor: symColor}}>
-          <Text style={styles.symptomTitle}>Balance Problems</Text>
+          <Text style={styles.symptomTitle}>Increased Sleep</Text>
         </View>
 
         <SymDescription
           rating={this.state.rating}
           symColor = {symColor}
-          sym ={"Balance Problems"}
-          d1="You are almost entirely confident in your balance abilities and do not fall."
-          d2="You are mostly confident in your balance abilities and may face more difficulty than normal while completing physical activities."
-          d3="You are somewhat unconfident in your balance abilities, generally feel unsteady while walking or moving, and may have fallen once or twice."
-          d4="You are not very confident in your balance abilities and feel unsteady and occasionally fall when you walk or move."
-          d5="You are not confident in your balance abilities. You have trouble walking or moving without falling and so you try to do so infrequently or get assistance to move around."
-          d6="You are entirely stationary because you feel unsafe walking or moving due to your balancing problems."/>
+          sym ="increase in sleep habits / sleeping less than normal"
+          d1="You may have to take a nap during the day but you sleep about the same total amount."
+          d2="You are sleeping 0-1 more hours normal  through either during the night and/or with additional naps, and may have a difficult time waking up."
+          d3="You are sleeping 1-2 more hours than normal through either during the night and/or with additional naps and have a difficult time waking up."
+          d4="You are sleeping 2-3 more hours than normal either during the night and/or with additional naps and struggle to wake up."
+          d5="You are sleeping 3-4 more hours than normal, struggle to be awake during the day and face great difficulty waking up."
+          d6="You sleep 4+ more hours a day than normal and feel the need to be asleep constantly."/>
 
         <View style={{marginHorizontal: 25}}>
           <SliderText rating={this.state.rating} color={symColor}/>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
 });
 
 
-BalanceProblems = connect(store => ({symptomRatings: store.symptomRatings}),
+IncreasedSleep = connect(store => ({symptomRatings: store.symptomRatings}),
                    dispatch => ({updateRating: (symptom, ratings) => {dispatch({type: 'ADD_SYMPTOM_RATING', symptom: symptom, ratings: ratings})}
                                })
-                   )(BalanceProblems);
+                   )(IncreasedSleep);

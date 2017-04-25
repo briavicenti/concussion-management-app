@@ -9,9 +9,6 @@ import {
   cAccent1,
   gAccent1,
 } from '../assets/styles.js';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-{/* Props you need to pass in: placeholder text */}
 
 export default class Textbox extends React.Component {
 
@@ -24,9 +21,10 @@ export default class Textbox extends React.Component {
 
 		return (
 			<TextInput
+        autocomplete={this.props.autocomplete}
         style={[styles.textbox, this.props.style]}
-        onChangeText={(text => this.setState({text}))}
-        value={this.state.text}
+        onChangeText={(text) => this.props.handler(text)}
+        value={this.props.value}
         clearTextOnFocus={true}
       />
 		);

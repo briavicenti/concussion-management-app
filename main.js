@@ -4,25 +4,23 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import { setCustomText } from 'react-native-global-props';
+
+// begin
 import Home from './screens/Home';
+import GettingStarted from './screens/GettingStarted';
+
+// Preseason Stuff
 import PSHome from './screens/PSHome';
 import CodeOfConduct from './screens/CodeOfConduct';
 import ConcussionPolicy from './screens/ConcussionPolicy';
-import ConcussionVid from './screens/ConcussionVid';
-
-// education modules
+//import ConcussionVid from './screens/ConcussionVid';
 import EdModules from './screens/EdModules'
-// import ConcussionOverview from './screens/ConcussionOverview';
-// import SignsAndSymptoms from './screens/SignsAndSymptoms';
-// import ConcussionRecovery from './screens/ConcussionRecovery';
-// import ReturnToPlay from './screens/ReturnToPlay';
 
 // in season
 import SHome from './screens/SHome';
+import ReportConcussion from './screens/ReportConcussion';
 import SymptomTest from './screens/SymptomTest';
 import SymptomProgress from './screens/SymptomProgress';
-
-
 
 const reducer = (state = {}, action) => {
   switch(action.type) {
@@ -30,8 +28,14 @@ const reducer = (state = {}, action) => {
       return {...state, [action.section]: action.state};
     case 'CHANGE_STAGE':
       return {...state, [action.section]: action.state};
-    case 'INCREASE_STAGE':
-      return {...state, [action.section]: action.state+1};
+    case 'MARK_INFO':
+      return {...state, [action.section]: action.state};
+    case 'UPDATE_USER_INFO':
+      return {...state, userInfo: action.state};
+    case 'UPDATE_CONCUSSION_INFO':
+      return {...state, concussionInfo: action.state};
+    case 'ADD_SYMPTOM_RATING':
+      return {...state, symptomRatings: {...state.symptomRatings, [action.symptom]: action.ratings}};
     default:
       return state;
   }
@@ -63,21 +67,17 @@ class App extends React.Component {
 
 const AppNavigator = StackNavigator( {
   Home: { screen: Home },
+  GettingStarted: { screen: GettingStarted },
   // Preseason items
   PSHome: { screen: PSHome },
-  ConcussionVid: { screen: ConcussionVid },
   CodeOfConduct: { screen: CodeOfConduct },
   ConcussionPolicy: { screen: ConcussionPolicy },
   // Education modules
   EdModules: { screen: EdModules },
-  // ConcussionOverview: { screen: ConcussionOverview },
-  // SignsAndSymptoms: { screen: SignsAndSymptoms },
-  // ConcussionRecovery: { screen: ConcussionRecovery },
-  // ReturnToPlay: { screen: ReturnToPlay },
-
 
   // In Season
   SHome: { screen: SHome },
+  ReportConcussion: { screen: ReportConcussion },
   SymptomTest: { screen: SymptomTest },
   SymptomProgress: { screen: SymptomProgress },
 

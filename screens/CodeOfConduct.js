@@ -25,12 +25,31 @@ import { StackNavigator } from 'react-navigation';
 
 export default class CodeOfConduct extends React.Component {
   
-  static navigationOptions = {
-    title: 'Code of Conduct',
-  };
+    state = {
+        firstName: "First name",
+        lastName: "Last name",
+        date: "Date (MM/DD/YY)",
+    }
+
+    updateFirstName = (firstName) => {
+        this.setState({firstName: firstName});
+    }
+
+    updateLastName = (lastName) => {
+        this.setState({lastName: lastName});
+    }
+
+    updateDate = (date) => {
+        this.setState({date: date});
+    }
+
+    static navigationOptions = {
+        title: 'Code of Conduct',
+    };
 
   render() {
     const { navigate } = this.props.navigation;
+
     return (
 
       <ScrollView contentContainerStyle={styles.container}>
@@ -155,11 +174,15 @@ export default class CodeOfConduct extends React.Component {
                 placeholder='First name' 
                 style={{flex: 1}}
                 autoCorrect={false}
+                value = {this.state.firstName}
+                handler={this.updateFirstName}
             />
             <Textbox 
                 placeholder='Last name' 
                 style={{flex: 1}}
                 autoCorrect={false}
+                value={this.state.lastName}
+                handler={this.updateLastName}
             />
         </View>
 
@@ -168,6 +191,8 @@ export default class CodeOfConduct extends React.Component {
             placeholder='Date (MM/DD/YYYY)' 
             style={{flex: 1}}
             autoCorrect={false}
+            value={this.state.date}
+            handler={this.updateDate}
         />
 
         <ColoredButton 
