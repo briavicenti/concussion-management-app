@@ -5,6 +5,7 @@ export const bg = '#D0D0D0'; // light grey
 // "Grey accents"
 export const gAccent1 = '#94979A'; // darker grey
 export const gAccent2 = '#5E6164'; // even darker grey
+export const gAccent3 = '#D0D2D4'; // lightish grey
 
 
 // "Colored accents"

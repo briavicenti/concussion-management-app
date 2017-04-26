@@ -36,11 +36,12 @@ const reducer = (state = {}, action) => {
       return {...state, concussionInfo: action.state};
     case 'ADD_SYMPTOM_RATING':
       return {...state, symptomRatings: {...state.symptomRatings, [action.symptom]: action.ratings}};
+    case 'ADD_REPORT_DATE':
+      return {...state, reportDates: action.dates};
     default:
       return state;
   }
 }
-
 
 
 const store = createStore(reducer);

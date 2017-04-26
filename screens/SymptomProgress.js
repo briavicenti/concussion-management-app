@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import TotalSymptomsGraph from '../components/TotalSymptomsGraph';
+import SymReports from '../components/SymReports';
 
 export default class SymptomProgress extends React.Component {
   
@@ -17,14 +18,18 @@ export default class SymptomProgress extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
+   // console.log(this.props.reportDates);
+
     return (
 
       // Total symptoms to date: bar chart of 4 symptoms
-      <View>
+      <ScrollView>
+
+      <SymReports/>
 
       <TotalSymptomsGraph test={true}/>
 
-      </View>
+      </ScrollView>
 
       // Symptoms per report: stacked bar chart per report
 
@@ -41,5 +46,5 @@ const styles = StyleSheet.create({
   },
 });
 
-SymptomProgress = connect(store => ({symptomRatings: store.symptomRatings, concussionInfo: store.concussionInfo || {}}),
+SymptomProgress = connect(store => ({symptomRatings: store.symptomRatings, reportDates: store.reportDates, concussionInfo: store.concussionInfo || {}}),
                  )(SymptomProgress);

@@ -39,9 +39,9 @@ export default class Home extends React.Component {
             </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => { navigate('PSHome'); this.props.beginPS(); }}>
+            <TouchableOpacity onPress={() => { navigate('SymptomProgress'); this.props.beginPS(); }}>
             <View style={styles.startedButton}>
-            <Text style={styles.startedButtonText}>PSHome</Text>
+            <Text style={styles.startedButtonText}>SP</Text>
             </View>
             </TouchableOpacity>
 

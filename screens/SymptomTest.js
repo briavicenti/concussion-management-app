@@ -77,6 +77,14 @@ export default class SymptomTest extends React.Component {
 
     const SymptomComponent = symptomComponents[this.state.symList[this.state.symNum]];
 
+    var prevDates = [];
+
+    if (this.props.reportDates) {
+      prevDates = this.props.reportDates;
+    }
+
+    var d = new Date();
+
     return (
 
       <View>
@@ -87,7 +95,8 @@ export default class SymptomTest extends React.Component {
       <View style={styles.container}>
       <Text style={{fontSize: 30, backgroundColor: '#fff', padding: 20, margin: 20,}}>You have completed all {this.state.symNum} symptom check cards.</Text> 
       <ColoredButton 
-          onPress={() => { this.props.navigation.navigate('SHome'); }}>
+          onPress={() => { this.props.navigation.navigate('SHome');
+                           this.props.addReportDate(prevDates.concat(d))}}>
       Submit Ratings
       </ColoredButton>
       </View>
@@ -106,3 +115,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
 });
+
+
+SymptomTest = connect(store => ({reportDates: store.reportDates}),
+                   dispatch => ({addReportDate: (dates) => {dispatch({type: 'ADD_REPORT_DATE', dates: dates})}
+                               })
+                   )(SymptomTest);
