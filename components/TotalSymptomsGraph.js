@@ -22,111 +22,107 @@ export default class TotalSymptomsGraph extends React.Component {
   render() {
     //const { navigate } = this.props.navigation;
 
-    var totalP = 0;
-    var totalS = 0;
-    var totalC = 0;
-    var totalE = 0;
+    var totalE = 19;
+    var totalS = 13;
+    var totalC = 15;
+    var totalP = 18;
 
-    for (var sym in this.props.symptomRatings) {
-      switch(sym) {
-        case 'Headache':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'NauseaVomiting':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'BalanceProblems':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'Dizziness':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'Fatigue':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'TroubleFallingAsleep':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalS+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'IncreasedSleep':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalS+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'DecreasedSleep':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalS+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'Drowsiness':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalS+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'SensitivityToLight':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'SensitivityToNoise':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'Irritability':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalE+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'Sadness':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalE+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'Anxiety':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalE+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'FeelingEmotional':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalE+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'NumbnessTingling':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'FeelingSluggish':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalC+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'FeelingDazed':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalC+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'DifficultyConcentrating':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalC+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'DifficultyRemembering':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalC+=this.props.symptomRatings[sym][i];
-          } break;
-        case 'VisionProblems':
-          for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
-            totalP+=this.props.symptomRatings[sym][i];
-          } break;
+    if (this.props.symptomRatings != null) {
+
+      totalP = 0;
+      totalS = 0;
+      totalC = 0;
+      totalE = 0;
+
+      for (var sym in this.props.symptomRatings) {
+        switch(sym) {
+          case 'Headache':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'NauseaVomiting':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'BalanceProblems':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'Dizziness':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'Fatigue':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'TroubleFallingAsleep':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalS+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'IncreasedSleep':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalS+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'DecreasedSleep':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalS+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'Drowsiness':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalS+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'SensitivityToLight':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'SensitivityToNoise':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'Irritability':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalE+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'Sadness':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalE+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'Anxiety':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalE+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'FeelingEmotional':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalE+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'NumbnessTingling':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'FeelingSluggish':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalC+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'FeelingDazed':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalC+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'DifficultyConcentrating':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalC+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'DifficultyRemembering':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalC+=this.props.symptomRatings[sym][i];
+            } break;
+          case 'VisionProblems':
+            for (i = 0; i < this.props.symptomRatings[sym].length; i++) {
+              totalP+=this.props.symptomRatings[sym][i];
+            } break;
+        }
       }
     }
-
-    if (this.props.test) {
-      totalP = 22;
-      totalS = 6;
-      totalC = 8;
-      totalE = 17;
-    }
-
-    console.log("Total P: "+totalP);
-    console.log("Total S: "+totalS);
-    console.log("Total C: "+totalC);
-    console.log("Total E: "+totalE);
 
     let data = [
       [{

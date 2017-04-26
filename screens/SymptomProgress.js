@@ -6,6 +6,9 @@ import {
   Text,
   View
 } from 'react-native';
+import {
+  Header1,
+} from '../components/TextComponents';
 import TotalSymptomsGraph from '../components/TotalSymptomsGraph';
 import SymReports from '../components/SymReports';
 
@@ -18,22 +21,17 @@ export default class SymptomProgress extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-   // console.log(this.props.reportDates);
-
     return (
 
-      // Total symptoms to date: bar chart of 4 symptoms
       <ScrollView>
 
+      <Header1 style={{alignSelf: 'center', marginTop: 10}}>Symptom Progress</Header1>
+      <TotalSymptomsGraph/>
+      
       <SymReports/>
-
-      <TotalSymptomsGraph test={true}/>
 
       </ScrollView>
 
-      // Symptoms per report: stacked bar chart per report
-
-      // Key symptoms: 3 top symptoms 
     );
   }
 }

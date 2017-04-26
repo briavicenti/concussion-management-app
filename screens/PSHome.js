@@ -55,6 +55,12 @@ export default class PSHome extends React.Component {
       this.props.markEdDone();
     }
 
+    var name = "User";
+
+    if (this.props.userInfo != null) {
+      name = this.props.userInfo.firstName;
+    }
+
     return (
       <ScrollView style={styles.container}>
         <Modal
@@ -82,7 +88,7 @@ export default class PSHome extends React.Component {
             style={styles.logoContainer}
         />
         <Header1 style={{marginLeft: 20, marginBottom: 5,}}>
-        Welcome, {this.props.userInfo.firstName}!
+        Welcome, {name}!
         </Header1>
 
         <HorizontalProgressBar progress={this.props.psStage}>

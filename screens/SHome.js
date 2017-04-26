@@ -41,6 +41,12 @@ export default class SHome extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
+    var name = "User";
+
+    if (this.props.userInfo != null) {
+      name = this.props.userInfo.firstName;
+    }
+
     return (
       <ScrollView style={styles.container}>
           <Modal
@@ -58,7 +64,7 @@ export default class SHome extends React.Component {
             <Header2>- Complete a symptom check.</Header2>
             <Header2>- Check your symptom progress.</Header2>
             </View>
-            <Text>{'\n'}Have a great season, {this.props.userInfo.firstName}!</Text>
+            <Text>{'\n'}Have a great season, {name}!</Text>
             <ColoredButton
               onPress={() => {this.props.markFirstVisit()}}>
               Okay
@@ -72,7 +78,7 @@ export default class SHome extends React.Component {
         />
 
         <Header1 style={{marginLeft: 20, marginBottom: 5, alignSelf: 'center'}}>
-        Welcome, {this.props.userInfo.firstName}!
+        Welcome, {name}!
         </Header1>
 
         <View style={{alignItems: 'center'}}>
@@ -137,7 +143,7 @@ const styles = StyleSheet.create({
   },
 });
 
-SHome = connect(store => ({userInfo: store.userInfo || {}, firstSVisit: store.firstSVisit}),
+SHome = connect(store => ({userInfo: store.userInfo, firstSVisit: store.firstSVisit}),
                  dispatch => ({ markFirstVisit: () => {dispatch({section: 'firstSVisit', type: 'MARK_COMPLETE', state: false})},
                              })
                  )(SHome);

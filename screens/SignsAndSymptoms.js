@@ -58,11 +58,11 @@ export default class SignsAndSymptoms extends React.Component {
             <Bullet color={cAccent1}><BlockText>Sadness</BlockText></Bullet>
             <Bullet color={cAccent1}><BlockText>Irritability</BlockText></Bullet>
             <Bullet color={cAccent1}><BlockText>Nervousness / anxiety</BlockText></Bullet>
-            <Bullet color={cAccent1}><BlockText>Changes in emotional state</BlockText></Bullet>
+            <Bullet color={cAccent1}><BlockText>Changes in emotional state / "feeling emotional"</BlockText></Bullet>
 
             <Header3 style={{color: cAccent2}}>{'\n'}Sleep Symptoms</Header3>
 
-            <Bullet color={cAccent2}><BlockText>Difficulty falling asleep</BlockText></Bullet>
+            <Bullet color={cAccent2}><BlockText>Trouble falling asleep</BlockText></Bullet>
             <Bullet color={cAccent2}><BlockText>Increased sleep habits</BlockText></Bullet>
             <Bullet color={cAccent2}><BlockText>Decreased sleep habits</BlockText></Bullet>
             <Bullet color={cAccent2}><BlockText>Drowsiness</BlockText></Bullet>

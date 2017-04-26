@@ -5,7 +5,10 @@ import {
   View,
   Text,
 } from 'react-native';
+import { gAccent1 } from '../assets/styles';
 import ColoredButton from '../components/ColoredButton';
+
+// Symptoms
 import Headache from '../components/symptoms/Headache';
 import NauseaVomiting from '../components/symptoms/NauseaVomiting';
 import BalanceProblems from '../components/symptoms/BalanceProblems';
@@ -93,7 +96,7 @@ export default class SymptomTest extends React.Component {
 
       {this.state.symNum > this.state.symList.length-1 &&
       <View style={styles.container}>
-      <Text style={{fontSize: 30, backgroundColor: '#fff', padding: 20, margin: 20,}}>You have completed all {this.state.symNum} symptom check cards.</Text> 
+      <Text style={{color: gAccent1, fontSize: 30, backgroundColor: '#fff', padding: 20, margin: 20,}}>You have completed all {this.state.symNum} symptom check cards.</Text> 
       <ColoredButton 
           onPress={() => { this.props.navigation.navigate('SHome');
                            this.props.addReportDate(prevDates.concat(d))}}>
