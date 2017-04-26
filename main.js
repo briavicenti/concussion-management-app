@@ -8,6 +8,7 @@ import { setCustomText } from 'react-native-global-props';
 // begin
 import Home from './screens/Home';
 import GettingStarted from './screens/GettingStarted';
+import Demo from './screens/Demo';
 
 // Preseason Stuff
 import PSHome from './screens/PSHome';
@@ -38,6 +39,8 @@ const reducer = (state = {}, action) => {
       return {...state, symptomRatings: {...state.symptomRatings, [action.symptom]: action.ratings}};
     case 'ADD_REPORT_DATE':
       return {...state, reportDates: action.dates};
+    case 'START_DEMO':
+      return {...state, userInfo: action.user, concussionInfo: action.concussion, symptomRatings: action.ratings, reportDates: action.dates}
     default:
       return state;
   }
@@ -69,6 +72,7 @@ class App extends React.Component {
 const AppNavigator = StackNavigator( {
   Home: { screen: Home },
   GettingStarted: { screen: GettingStarted },
+  Demo: { screen: Demo },
   // Preseason items
   PSHome: { screen: PSHome },
   CodeOfConduct: { screen: CodeOfConduct },
@@ -81,7 +85,6 @@ const AppNavigator = StackNavigator( {
   ReportConcussion: { screen: ReportConcussion },
   SymptomTest: { screen: SymptomTest },
   SymptomProgress: { screen: SymptomProgress },
-
 });
 
 Expo.registerRootComponent(App);

@@ -34,6 +34,8 @@ export default class PSHome extends React.Component {
 
     const { navigate } = this.props.navigation;
 
+    console.log(this.props.userInfo);
+
     var content = (<Text>Invalid state</Text>);
 
     switch(this.props.psStage) {

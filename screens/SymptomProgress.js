@@ -21,6 +21,10 @@ export default class SymptomProgress extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
+    console.log(this.props.concussionInfo);
+    console.log(this.props.symptomRatings);
+    console.log(this.props.reportDates);
+
     return (
 
       <ScrollView>

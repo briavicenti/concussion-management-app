@@ -115,9 +115,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logoContainer: {
-    width: 55,
-    height: 55,
-    margin: 10,
+    width: 70,
+    height: 70,
+    marginTop: 15,
     alignSelf: 'center',
   },
   popup: {

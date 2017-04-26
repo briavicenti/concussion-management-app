@@ -12,6 +12,7 @@ import {
   cAccent3,
   cAccent4,
   cAccent5,
+  gAccent1,
   gAccent2,
 } from '../assets/styles';
 import { Bar } from 'react-native-pathjs-charts';
@@ -20,19 +21,13 @@ import { Bar } from 'react-native-pathjs-charts';
 export default class TotalSymptomsGraph extends React.Component {
 
   render() {
-    //const { navigate } = this.props.navigation;
 
-    var totalE = 19;
-    var totalS = 13;
-    var totalC = 15;
-    var totalP = 18;
+    var totalE = 0;
+    var totalS = 0;
+    var totalC = 0;
+    var totalP = 0;
 
     if (this.props.symptomRatings != null) {
-
-      totalP = 0;
-      totalS = 0;
-      totalC = 0;
-      totalE = 0;
 
       for (var sym in this.props.symptomRatings) {
         switch(sym) {
@@ -124,6 +119,8 @@ export default class TotalSymptomsGraph extends React.Component {
       }
     }
 
+    var hasSym = (totalE > 0) || (totalC > 0) || (totalP > 0) || (totalS > 0);
+
     let data = [
       [{
        "v": totalE,
@@ -160,13 +157,12 @@ export default class TotalSymptomsGraph extends React.Component {
         right: 20
       },
       color: cAccent1,
-      //pallete: pallete,
       gutter: 20,
-      // animate: {
-      //   type: 'oneByOne',
-      //   duration: 200,
-      //   fillTransition: 3
-      // },
+      animate: {
+        type: 'oneByOne',
+        duration: 200,
+        fillTransition: 3
+      },
       axisX: {
         showAxis: true,
         showLines: false,
@@ -202,36 +198,44 @@ export default class TotalSymptomsGraph extends React.Component {
       // Total symptoms to date: bar chart of 4 symptoms
       <View style={{backgroundColor: '#fff', margin: 20, alignItems: 'center', justifyContent: 'center', paddingBottom: 10,}}>
         <Text style={{color: gAccent2, fontSize: 24, fontWeight: 'bold', marginTop: 15}}>Total Symptoms to Date</Text>
+        
+        {hasSym && (
+        <View>
+          <Bar data={data} options={options} pallete={pallete} accessorKey='v'/>
 
-        <Bar data={data} options={options} pallete={pallete} accessorKey='v'/>
+          <View style={{alignSelf: 'center', width: 250, flexDirection: 'row', marginBottom: 15,}}>
+          <Text style={{color: cAccent1, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalE}</Text>
+          <Text style={{color: cAccent2, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalS}</Text>
+          <Text style={{color: cAccent4, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalC}</Text>
+          <Text style={{color: cAccent5, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalP}</Text>
+          </View>
 
+          <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+              <View style={{backgroundColor: cAccent1, height: 25, width: 30, marginRight: 10,}}/>
+              <Text style={{color: cAccent1, fontSize: 18,}}>Emotional Symptom Ratings</Text>
+          </View>
 
-        <View style={{alignSelf: 'center', width: 250, flexDirection: 'row', marginBottom: 15,}}>
-        <Text style={{color: cAccent1, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalE}</Text>
-        <Text style={{color: cAccent2, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalS}</Text>
-        <Text style={{color: cAccent4, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalC}</Text>
-        <Text style={{color: cAccent5, fontWeight: 'bold', fontSize: 20, flex: 1, textAlign: 'center'}}>{totalP}</Text>
-        </View>
+          <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+              <View style={{backgroundColor: cAccent2, height: 25, width: 30, marginRight: 10,}}/>
+              <Text style={{color: cAccent2, fontSize: 18,}}>Sleep Symptom Ratings</Text>
+          </View>
 
-        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
-            <View style={{backgroundColor: cAccent1, height: 25, width: 30, marginRight: 10,}}/>
-            <Text style={{color: cAccent1, fontSize: 18,}}>Emotional Symptom Ratings</Text>
-        </View>
+          <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+              <View style={{backgroundColor: cAccent4, height: 25, width: 30, marginRight: 10,}}/>
+              <Text style={{color: cAccent4, fontSize: 18,}}>Cognitive Symptom Ratings</Text>
+          </View>
 
-        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
-            <View style={{backgroundColor: cAccent2, height: 25, width: 30, marginRight: 10,}}/>
-            <Text style={{color: cAccent2, fontSize: 18,}}>Sleep Symptom Ratings</Text>
-        </View>
+          <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
+              <View style={{backgroundColor: cAccent5, height: 25, width: 30, marginRight: 10,}}/>
+              <Text style={{color: cAccent5, fontSize: 18,}}>Physical Symptom Ratings</Text>
+          </View>
+        </View>)}
 
-        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
-            <View style={{backgroundColor: cAccent4, height: 25, width: 30, marginRight: 10,}}/>
-            <Text style={{color: cAccent4, fontSize: 18,}}>Cognitive Symptom Ratings</Text>
-        </View>
-
-        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 20, marginBottom: 5,}}>
-            <View style={{backgroundColor: cAccent5, height: 25, width: 30, marginRight: 10,}}/>
-            <Text style={{color: cAccent5, fontSize: 18,}}>Physical Symptom Ratings</Text>
-        </View>
+        {(!hasSym && 
+          <View style={{backgroundColor: gAccent1, marginHorizontal: 10, marginVertical: 20, padding: 10, flex: 1}}>
+            <Text style={{color: '#fff', fontSize: 20, textAlign: 'center',}}>No symptoms reported.</Text>
+          </View>
+        )}
 
       </View>
 

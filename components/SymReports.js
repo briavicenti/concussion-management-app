@@ -26,7 +26,7 @@ export default class SymReports extends React.Component {
   renderHeader = (section, index, isActive) => {
     return (
       <View style={styles.header}>
-        <Text style={styles.headerText}>Report {index+1}: {section.reportDate}</Text>
+        <Text style={styles.headerText}>Report {index+1}: {section.reportDate} {index==0 && <Text>(Baseline)</Text>}</Text>
         <Icon name={isActive ? 'angle-down' : 'angle-up'} size={30} color={'#fff'}/>
       </View>
     );
@@ -42,64 +42,7 @@ export default class SymReports extends React.Component {
 
   render() {
 
-    var sections = [
-      // TotalE: 9
-      // TotalS: 8
-      // TotalC: 8
-      // TotalP: 11
-      {
-        reportDate: "04/25/17",
-        Headache: 2,
-        NauseaVomiting: 1,
-        BalanceProblems: 1,
-        Dizziness: 2,
-        Fatigue: 0,
-        TroubleFallingAsleep: 3,
-        IncreasedSleep: 0,
-        DecreasedSleep: 2,
-        Drowsiness: 3,
-        SensitivityToLight: 1,
-        SensitivityToNoise: 2,
-        Irritability: 0,
-        Sadness: 3,
-        Anxiety: 4,
-        FeelingEmotional: 2,
-        NumbnessTingling: 0,
-        FeelingSluggish: 1,
-        FeelingDazed: 2,
-        DifficultyConcentrating: 5,
-        DifficultyRemembering: 0,
-        VisionProblems: 2,
-      },
-      // TotalE: 10
-      // TotalS: 5
-      // TotalC: 7
-      // TotalP: 7
-      {
-        reportDate: "04/27/17",
-        Headache: 1,
-        NauseaVomiting: 0,
-        BalanceProblems: 2,
-        Dizziness: 0,
-        Fatigue: 2,
-        TroubleFallingAsleep: 2,
-        IncreasedSleep: 0,
-        DecreasedSleep: 2,
-        Drowsiness: 1,
-        SensitivityToLight: 1,
-        SensitivityToNoise: 1,
-        Irritability: 2,
-        Sadness: 2,
-        Anxiety: 2,
-        FeelingEmotional: 4,
-        NumbnessTingling: 0,
-        FeelingSluggish: 1,
-        FeelingDazed: 1,
-        DifficultyConcentrating: 2,
-        DifficultyRemembering: 1,
-        VisionProblems: 0,
-      },
-    ];    
+    var sections = [];
 
     if (this.props.reportDates) {
       var sections = this.props.reportDates.map((currDate, index) => {
@@ -154,8 +97,6 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: gAccent1,
-    // borderBottomWidth: 1,
-    // borderColor: '#fff',
     marginVertical: 2,
     padding: 5,
     paddingHorizontal: 15,
@@ -165,8 +106,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
-    fontSize: 18,
-    //fontWeight: 'bold',
+    fontSize: 16,
   },
   content: {
     backgroundColor: bg,
