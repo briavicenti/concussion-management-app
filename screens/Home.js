@@ -81,11 +81,13 @@ export default class Home extends React.Component {
             </View>
             </TouchableOpacity>
 
+            {/*
             <TouchableOpacity onPress={() => { navigate('Demo'); this.props.beginDemo(demoUser, demoDates, demoConcussion, demoReports); }}>
             <View style={styles.startedButton}>
             <Text style={styles.startedButtonText}>Demo</Text>
             </View>
             </TouchableOpacity>
+            */}
 
           </View>
       </BackgroundImage>

@@ -29,7 +29,7 @@ import FeelingSluggish from '../components/symptoms/FeelingSluggish';
 import FeelingDazed from '../components/symptoms/FeelingDazed';
 import DifficultyConcentrating from '../components/symptoms/DifficultyConcentrating';
 import DifficultyRemembering from '../components/symptoms/DifficultyRemembering';
-import VisionProblems from '../components/symptoms/DifficultyRemembering';
+import VisionProblems from '../components/symptoms/VisionProblems';
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
